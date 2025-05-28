@@ -41,5 +41,10 @@
             <argument>%frosh_prometheus.metrics_route%</argument>
             <tag name="shopware.route_scope"/>
         </service>
+
+        <service id="Frosh\PrometheusBundle\Subscriber\SkipRequestTransformerSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument>%frosh_prometheus.metrics_route%</argument>
+        </service>
     </services>
 </container>

@@ -23,7 +23,6 @@ class MetricRouteLoader
             [
                 '_routeScope' => ['frosh_prometheus'],
                 'auth_required' => false,
-                'sw-skip-transformer' => true,
                 '_controller' => sprintf('%s::prometheus', PrometheusController::class),
             ],
             methods: ['GET']

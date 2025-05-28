@@ -4,6 +4,12 @@
     "type": "library",
     "license": "MIT",
     "version": "0.1.0",
+    "homepage": "https://friendsofshopware.com",
+    "keywords": [
+        "shopware",
+        "prometheus",
+        "monitoring"
+    ],
     "autoload": {
         "psr-4": {
             "Frosh\\PrometheusBundle\\": "src/"
@@ -11,8 +17,8 @@
     },
     "authors": [
         {
-            "name": "Felix Schneider",
-            "email": "felix.schneider@wimmelbach.de"
+            "name": "FriendsOfShopware",
+            "homepage": "https://friendsofshopware.com"
         }
     ],
     "require": {

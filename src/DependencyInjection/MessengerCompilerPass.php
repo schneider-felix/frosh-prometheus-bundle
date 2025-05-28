@@ -14,7 +14,7 @@ class MessengerCompilerPass implements CompilerPassInterface
         $transportIds = array_keys($container->findTaggedServiceIds('messenger.receiver'));
         $transportServiceReferences = [];
         foreach ($transportIds as $transportId) {
-            if(!$container->hasDefinition($transportId)){
+            if (!$container->hasDefinition($transportId)) {
                 continue;
             }
             $transportServiceReferences[$transportId] = new Reference($transportId);

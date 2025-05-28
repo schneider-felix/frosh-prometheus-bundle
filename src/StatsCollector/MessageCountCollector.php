@@ -23,7 +23,7 @@ class MessageCountCollector extends AbstractStatsCollector
          * @var TransportInterface $transport
          */
         foreach ($this->transports as $transportName => $transport) {
-            if(!$transport instanceof MessageCountAwareInterface) {
+            if (!$transport instanceof MessageCountAwareInterface) {
                 continue;
             }
 

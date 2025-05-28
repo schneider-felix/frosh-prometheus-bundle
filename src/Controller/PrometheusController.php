@@ -2,10 +2,8 @@
 
 namespace Frosh\PrometheusBundle\Controller;
 
-use Frosh\PrometheusBundle\Service\MessageCountResolver;
 use Frosh\PrometheusBundle\StatsCollector\AbstractStatsCollector;
 use Prometheus\CollectorRegistry;
-use Prometheus\MetricFamilySamples;
 use Prometheus\RenderTextFormat;
 use Prometheus\Storage\InMemory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

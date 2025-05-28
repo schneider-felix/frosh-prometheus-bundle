@@ -2,9 +2,7 @@
 
 namespace Frosh\PrometheusBundle\StatsCollector;
 
-use Composer\Composer;
 use Prometheus\CollectorRegistry;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class ShopwareVersionCollector extends AbstractStatsCollector
 {

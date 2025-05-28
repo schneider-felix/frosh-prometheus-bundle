@@ -7,25 +7,28 @@ use Prometheus\CollectorRegistry;
 use Prometheus\RenderTextFormat;
 use Prometheus\Storage\InMemory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\IpUtils;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(defaults: ['_routeScope' => ['api']])]
 class PrometheusController extends AbstractController
 {
-
     /**
      * @param iterable<AbstractStatsCollector> $statsResolvers
      */
     public function __construct(
-        private iterable $statsResolvers
-    )
-    {
+        private readonly iterable $statsResolvers,
+        private array $allowedIps,
+    ) {
     }
 
-    #[Route('/metrics', name: 'frosh.prometheus.metics', defaults: ['auth_required' => false], methods: ['GET'])]
-    public function prometheus(): Response
+    public function prometheus(Request $request): Response
     {
+        if(!IpUtils::checkIp($request->getClientIp(), $this->allowedIps)){
+            return new Response("", Response::HTTP_NOT_FOUND);
+        }
+
         $collector = new CollectorRegistry(new InMemory(), false);
         foreach ($this->statsResolvers as $statsResolver) {
             $statsResolver->collect($collector);

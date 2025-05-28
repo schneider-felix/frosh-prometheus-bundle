@@ -10,6 +10,7 @@
                 <argument type="service" id="service_container"/>
             </call>
             <argument type="tagged_iterator" tag="frosh_prometheus.stats_collector"/>
+            <argument>%frosh_prometheus.allowed_ips%</argument>
         </service>
 
         <service id="Frosh\PrometheusBundle\StatsCollector\MessageCountCollector">
@@ -20,9 +21,25 @@
             <argument type="service" id="Doctrine\DBAL\Connection"/>
             <tag name="frosh_prometheus.stats_collector"/>
         </service>
+        <service id="Frosh\PrometheusBundle\StatsCollector\NewsletterCountCollector">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="frosh_prometheus.stats_collector"/>
+        </service>
         <service id="Frosh\PrometheusBundle\StatsCollector\ShopwareVersionCollector">
             <argument>%kernel.shopware_version%</argument>
             <tag name="frosh_prometheus.stats_collector"/>
+        </service>
+        <service id="Frosh\PrometheusBundle\StatsCollector\PluginVersionCollector">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="frosh_prometheus.stats_collector"/>
+        </service>
+        <service id="Frosh\PrometheusBundle\Routing\MetricRouteLoader">
+            <argument>%frosh_prometheus.metrics_route%</argument>
+            <tag name="routing.route_loader"/>
+        </service>
+        <service id="Frosh\PrometheusBundle\Routing\PrometheusRouteScope">
+            <argument>%frosh_prometheus.metrics_route%</argument>
+            <tag name="shopware.route_scope"/>
         </service>
     </services>
 </container>

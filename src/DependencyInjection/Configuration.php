@@ -16,10 +16,6 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->stringNode('metrics_route')
-                    ->defaultValue('/metrics')
-                    ->info('Path for the prometheus metrics endpoint')
-                ->end()
                 ->arrayNode('allowed_ips')
                     ->stringPrototype()
                     ->defaultValue(["127.0.0.1", "::1"])

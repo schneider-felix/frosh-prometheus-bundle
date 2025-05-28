@@ -16,8 +16,6 @@ class FroshPrometheusExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('frosh_prometheus.metrics_route', '/' . ltrim(rtrim($config['metrics_route'] ?? '/metrics', '/'), '/'));
-
         $allowedIps = !empty($config['allowed_ips']) ? $config['allowed_ips'] : [
             '127.0.0.1',
             '::1',

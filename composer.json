@@ -1,0 +1,22 @@
+{
+    "name": "frosh/prometheus-bundle",
+    "description": "Prometheus exporter for Shopware 6",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.1.0",
+    "autoload": {
+        "psr-4": {
+            "Frosh\\PrometheusBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felix Schneider",
+            "email": "felix.schneider@wimmelbach.de"
+        }
+    ],
+    "require": {
+        "shopware/core": "^6.6.0",
+        "promphp/prometheus_client_php": "^2.14"
+    }
+}

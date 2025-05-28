@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Frosh\PrometheusBundle\Controller\PrometheusController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="tagged_iterator" tag="frosh_prometheus.stats_collector"/>
+        </service>
+
+        <service id="Frosh\PrometheusBundle\StatsCollector\MessageCountCollector">
+            <argument type="abstract"/>
+            <tag name="frosh_prometheus.stats_collector"/>
+        </service>
+        <service id="Frosh\PrometheusBundle\StatsCollector\OrderCountCollector">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="frosh_prometheus.stats_collector"/>
+        </service>
+        <service id="Frosh\PrometheusBundle\StatsCollector\ShopwareVersionCollector">
+            <argument>%kernel.shopware_version%</argument>
+            <tag name="frosh_prometheus.stats_collector"/>
+        </service>
+    </services>
+</container>

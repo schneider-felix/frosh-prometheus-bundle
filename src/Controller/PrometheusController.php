@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(defaults: ['_routeScope' => ['storefront']])]
+#[Route(defaults: ['_routeScope' => ['api']])]
 class PrometheusController extends AbstractController
 {
 
@@ -23,7 +23,7 @@ class PrometheusController extends AbstractController
     {
     }
 
-    #[Route('/metrics', name: 'prometheus', methods: ['GET'])]
+    #[Route('/metrics', name: 'frosh.prometheus.metics', defaults: ['auth_required' => false], methods: ['GET'])]
     public function prometheus(): Response
     {
         $collector = new CollectorRegistry(new InMemory(), false);

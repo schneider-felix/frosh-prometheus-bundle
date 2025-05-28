@@ -23,7 +23,7 @@ class PrometheusController extends AbstractController
     {
     }
 
-    #[Route('/prometheus', name: 'prometheus', methods: ['GET'])]
+    #[Route('/metrics', name: 'prometheus', methods: ['GET'])]
     public function prometheus(): Response
     {
         $collector = new CollectorRegistry(new InMemory(), false);

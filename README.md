@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./img/FroshPrometheusBundle.png" alt="FroshPrometheusBundle">
+<img src="./img/FroshPrometheusBundle.svg" alt="FroshPrometheusBundle">
 </p>
 
 # FroshPrometheusBundle

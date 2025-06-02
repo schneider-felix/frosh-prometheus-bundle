@@ -33,5 +33,9 @@
             <argument type="service" id="Doctrine\DBAL\Connection"/>
             <tag name="frosh_prometheus.stats_collector"/>
         </service>
+        <service id="Frosh\PrometheusBundle\StatsCollector\ScheduledTaskCollector">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="frosh_prometheus.stats_collector"/>
+        </service>
     </services>
 </container>
